@@ -57,7 +57,6 @@ public class AuthenFilterConfig extends BasicAuthenticationFilter {
         String username = (String) userMap.keySet().toArray()[0];
         List<String> authorList = (List<String>) userMap.get(username);
         List<GrantedAuthority> grantedAuthorityList = generateGrantedAuthorityList(authorList);
-        System.out.println("ok4");
         return new UsernamePasswordAuthenticationToken(username,null, grantedAuthorityList);
 
     }

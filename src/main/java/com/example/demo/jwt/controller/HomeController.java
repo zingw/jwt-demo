@@ -18,7 +18,6 @@ public class HomeController {
     @GetMapping("/login")
     public LoginRes login(@RequestParam String username,
                            @RequestParam String password){
-        System.out.println("ok3");
         return loginService.checkLogin(username,password);
     }
 

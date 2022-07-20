@@ -24,7 +24,6 @@ public class LoginServiceImpl implements  LoginService{
         User user = userOptional.get();
         String pw = user.getPassword();
         if(!BCrypt.checkpw(password,pw)) return new LoginRes("sai mật khẩu",false,null);
-        System.out.println("ok1");
         return new LoginRes("đăng nhập thành công",true,tokenGenerator(user));
     }
 
@@ -34,7 +33,6 @@ public class LoginServiceImpl implements  LoginService{
         String authors = user.getAuthor();
         List<String> authorList = List.of(authors.split(","));
         userMap.put(name,authorList);
-        System.out.println("ok2");
         return TokenService.createToken(userMap);
     }
 }

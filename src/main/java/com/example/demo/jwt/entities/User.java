@@ -1,5 +1,9 @@
 package com.example.demo.jwt.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.internal.build.AllowPrintStacktrace;
 
 import javax.persistence.Column;
@@ -9,6 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -21,39 +29,6 @@ public class User {
     @Column(name = "author")
     private String author;
 
-    public User(){
-
-    }
-
-    public User(String username, String password, String author) {
-        this.username = username;
-        this.password = password;
-        this.author = author;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 
 

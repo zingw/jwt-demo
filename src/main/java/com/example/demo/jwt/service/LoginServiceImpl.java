@@ -29,10 +29,11 @@ public class LoginServiceImpl implements  LoginService{
 
     private String tokenGenerator(User user) {
         Map<String,Object> userMap = new HashMap<>();
-        String name = user.getUsername();
+        String username = user.getUsername();
         String authors = user.getAuthor();
         List<String> authorList = List.of(authors.split(","));
-        userMap.put(name,authorList);
+        userMap.put("username",username);
+        userMap.put("authors",authorList);
         return TokenService.createToken(userMap);
     }
 }

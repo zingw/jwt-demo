@@ -2,12 +2,9 @@ package com.example.demo.jwt.service;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SignatureException;
-
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 public class TokenService {
 
@@ -20,8 +17,11 @@ public class TokenService {
         long expireTime = 15000L;
         return Jwts.builder()
                 .setClaims(userMap)
-                .signWith(secretKey,SignatureAlgorithm.HS256) // mac dinh la HS356 neu ko chi dinh
-                .setIssuedAt(new Date(present))
+                .signWith(secretKey)
+                .setIssuer("le viet duc")
+                .setAudience("haha")
+                .setSubject("123")
+                .setIssuedAt(new Date(present))// mac dinh la HS356 neu ko chi dinh
                 .setExpiration(new Date(present+expireTime))
                 .compact();
 
